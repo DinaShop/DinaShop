@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DinaShop — Boutique femme</title>
+<meta name="description" content="DinaShop, une sélection de vêtements pour femme.">
+<style>
+:root{--cream:#f6f1e9;--sand:#e8ddcf;--ink:#302b26;--muted:#786f65;--white:#fffdf9;--line:#e5ddd3;--accent:#a8896c}
+*{box-sizing:border-box}body{margin:0;background:var(--white);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+button{font:inherit;cursor:pointer}.topnote{background:var(--ink);color:#fff;text-align:center;padding:9px 12px;font-size:11px;letter-spacing:1.5px}
+header{height:76px;padding:0 6vw;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);background:var(--white);position:sticky;top:0;z-index:5}
+.logo{font-family:Georgia,serif;font-size:27px;letter-spacing:4px;text-decoration:none;color:var(--ink)}
+nav{display:flex;gap:27px}nav a{color:var(--muted);text-decoration:none;font-size:12px;letter-spacing:1px;text-transform:uppercase}
+.cartbtn{border:1px solid var(--line);background:transparent;padding:10px 14px;color:var(--ink);font-size:12px;letter-spacing:.5px}
+.hero{margin:24px auto 0;width:92%;min-height:470px;background:linear-gradient(90deg,rgba(35,29,24,.50),rgba(35,29,24,.03)),url('https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1800&q=85') center 35%/cover;display:flex;align-items:center}
+.herotext{color:white;padding:7%;max-width:520px}.eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase}.herotext h1{font-family:Georgia,serif;font-size:clamp(42px,6vw,68px);font-weight:400;line-height:1.04;margin:18px 0}.herotext p{font-size:14px;line-height:1.7;max-width:340px}.primary{display:inline-block;background:var(--white);color:var(--ink);border:0;padding:15px 23px;margin-top:15px;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none}
+.section{padding:70px 6vw}.sectionhead{text-align:center;margin-bottom:30px}.sectionhead .eyebrow{color:var(--accent)}h2{font:400 34px Georgia,serif;margin:10px 0}.intro{color:var(--muted);font-size:13px;line-height:1.6}
+.filters{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin:24px 0 30px}.filter{border:1px solid var(--line);background:transparent;padding:9px 15px;color:var(--muted);font-size:11px;letter-spacing:.8px}.filter.active{background:var(--ink);border-color:var(--ink);color:white}
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.product{min-width:0}.photo{position:relative;background:var(--cream);aspect-ratio:3/4;overflow:hidden}.photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}.product:hover img{transform:scale(1.04)}.tag{position:absolute;top:12px;left:12px;background:var(--white);padding:7px 9px;font-size:9px;letter-spacing:1px}.productinfo{padding:13px 2px}.productname{font:20px Georgia,serif;margin:0 0 7px}.price{font-size:12px;color:var(--muted)}.add{margin-top:12px;width:100%;padding:11px;background:transparent;border:1px solid var(--ink);font-size:10px;letter-spacing:1px;text-transform:uppercase}.add:hover{background:var(--ink);color:white}
+.banner{background:var(--cream);padding:48px 20px;text-align:center}.banner h2{font-size:30px}.banner p{color:var(--muted);font-size:13px}
+footer{background:#eee6dc;padding:38px 6vw;text-align:center;color:var(--muted);font-size:11px;line-height:1.8;letter-spacing:.5px}.footlogo{font:23px Georgia,serif;letter-spacing:3px;color:var(--ink);margin-bottom:12px}
+.overlay{position:fixed;inset:0;background:#0006;z-index:9;display:none}.overlay.show{display:block}.drawer{position:fixed;right:0;top:0;height:100%;width:min(420px,92vw);background:var(--white);z-index:10;padding:24px;transform:translateX(105%);transition:transform .25s;overflow:auto}.drawer.show{transform:translateX(0)}.drawerhead{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:15px}.drawer h3{font:25px Georgia,serif;margin:0}.close{border:0;background:none;font-size:25px}.cartline{display:flex;justify-content:space-between;gap:12px;padding:16px 0;border-bottom:1px solid var(--line);font-size:13px}.cartline small{display:block;color:var(--muted);margin-top:5px}.qty{display:flex;align-items:center;gap:9px;margin-top:8px}.qty button{border:1px solid var(--line);background:white;padding:3px 8px}.total{display:flex;justify-content:space-between;padding:20px 0;font-weight:bold}.checkout{width:100%;padding:14px;background:var(--ink);color:white;border:0;letter-spacing:1px;font-size:11px}.notice{font-size:11px;color:var(--muted);line-height:1.6;margin-top:12px}.empty{color:var(--muted);font-size:13px;padding:30px 0}
+@media(max-width:800px){nav{display:none}.hero{min-height:390px}.products{grid-template-columns:repeat(2,1fr);gap:14px}.section{padding:52px 5vw}}
+@media(max-width:420px){header{padding:0 4vw}.logo{font-size:22px}.hero{width:94%;min-height:350px}.herotext{padding:8%}.herotext h1{font-size:42px}.products{gap:10px}.productname{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="topnote">BIENVENUE CHEZ DINASHOP</div>
+<header>
+  <a class="logo" href="#">DINASHOP</a>
+  <nav><a href="#accueil">Accueil</a><a href="#boutique">La boutique</a><a href="#apropos">À propos</a></nav>
+  <button class="cartbtn" id="openCart">PANIER (<span id="cartCount">0</span>)</button>
+</header>
+<main>
+<section class="hero" id="accueil">
+  <div class="herotext">
+    <div class="eyebrow">Collection femme</div>
+    <h1>La simplicité<br>vous va si bien.</h1>
+    <p>Des pièces faciles à porter, pensées pour accompagner chaque journée.</p>
+    <a class="primary" href="#boutique">Découvrir la collection</a>
+  </div>
+</section>
+<section class="section" id="boutique">
+  <div class="sectionhead"><div class="eyebrow">La sélection DinaShop</div><h2>La boutique</h2><p class="intro">Découvrez nos pièces et trouvez vos essentiels.</p></div>
+  <div class="filters" id="filters">
+    <button class="filter active" data-filter="Tous">Tout voir</button>
+    <button class="filter" data-filter="Blazer">Blazers</button>
+    <button class="filter" data-filter="Ensemble">Ensembles</button>
+    <button class="filter" data-filter="Robe">Robes</button>
+    <button class="filter" data-filter="Pantalon">Pantalons</button>
+  </div>
+  <div class="products" id="products"></div>
+</section>
+<section class="banner" id="apropos"><div class="eyebrow">L'esprit DinaShop</div><h2>Des essentiels, tout simplement.</h2><p>Une boutique femme aux tons doux et aux lignes épurées.</p></section>
+</main>
+<footer><div class="footlogo">DINASHOP</div>Mode femme · Beige & blanc<br>Contact : bonjour@dinashop.fr<br><br>© <span id="year"></span> DinaShop — Maquette de boutique</footer>
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer" aria-label="Panier">
+  <div class="drawerhead"><h3>Votre panier</h3><button class="close" id="closeCart" aria-label="Fermer">×</button></div>
+  <div id="cartItems"></div><div class="total"><span>Total estimé</span><span id="total">0,00 €</span></div>
+  <button class="checkout" id="checkout">CONTINUER</button>
+  <p class="notice">Version de démonstration : aucune commande ni aucun paiement réel n'est effectué. Les prix et articles sont provisoires.</p>
+</aside>
+<script>
+const products=[
+ {id:1,name:"Blazer",price:49.90,category:"Blazer",image:"https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=800&q=80"},
+ {id:2,name:"Ensemble",price:59.90,category:"Ensemble",image:"https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=800&q=80"},
+ {id:3,name:"Robe",price:44.90,category:"Robe",image:"https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=800&q=80"},
+ {id:4,name:"Pantalon",price:39.90,category:"Pantalon",image:"https://images.unsplash.com/photo-1551232864-3f0890e580d9?auto=format&fit=crop&w=800&q=80"}
+];
+let cart={};let active="Tous";
+const euro=n=>n.toLocaleString("fr-FR",{style:"currency",currency:"EUR"});
+function renderProducts(){document.getElementById("products").innerHTML=products.filter(p=>active==="Tous"||p.category===active).map(p=>`<article class="product"><div class="photo"><img src="${p.image}" alt="${p.name}" loading="lazy"><span class="tag">DINASHOP</span></div><div class="productinfo"><h3 class="productname">${p.name}</h3><div class="price">${euro(p.price)}</div><button class="add" data-add="${p.id}">Ajouter au panier</button></div></article>`).join("");}
+function renderCart(){const entries=Object.entries(cart).filter(([id,q])=>q>0);document.getElementById("cartCount").textContent=entries.reduce((s,[id,q])=>s+q,0);document.getElementById("cartItems").innerHTML=entries.length?entries.map(([id,q])=>{const p=products.find(x=>x.id===Number(id));return `<div class="cartline"><div><strong>${p.name}</strong><small>${euro(p.price)} l'unité</small><div class="qty"><button data-minus="${id}">−</button><span>${q}</span><button data-plus="${id}">+</button></div></div><strong>${euro(p.price*q)}</strong></div>`}).join(""):'<p class="empty">Votre panier est vide pour le moment.</p>';document.getElementById("total").textContent=euro(entries.reduce((s,[id,q])=>s+products.find(p=>p.id===Number(id)).price*q,0));}
+function openCart(){document.getElementById("drawer").classList.add("show");document.getElementById("overlay").classList.add("show")}
+function closeCart(){document.getElementById("drawer").classList.remove("show");document.getElementById("overlay").classList.remove("show")}
+document.addEventListener("click",e=>{const add=e.target.closest("[data-add]");if(add){const id=add.dataset.add;cart[id]=(cart[id]||0)+1;renderCart();add.textContent="Ajouté !";setTimeout(()=>add.textContent="Ajouter au panier",900)}const plus=e.target.closest("[data-plus]");if(plus){const id=plus.dataset.plus;cart[id]++;renderCart()}const minus=e.target.closest("[data-minus]");if(minus){const id=minus.dataset.minus;cart[id]--;if(cart[id]<=0)delete cart[id];renderCart()}const f=e.target.closest("[data-filter]");if(f){active=f.dataset.filter;document.querySelectorAll(".filter").forEach(b=>b.classList.toggle("active",b===f));renderProducts()}});
+document.getElementById("openCart").onclick=openCart;document.getElementById("closeCart").onclick=closeCart;document.getElementById("overlay").onclick=closeCart;
+document.getElementById("checkout").onclick=()=>alert("Ceci est une maquette : le paiement en ligne n'est pas encore configuré.");
+document.getElementById("year").textContent=new Date().getFullYear();renderProducts();renderCart();
+</script>
+</body></html>
