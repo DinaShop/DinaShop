@@ -1,1 +1,110 @@
 
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administration DinaShop</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f4ef;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 650px;
+      margin: 30px auto;
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+    }
+    h1 { color: #9b8065; text-align: center; }
+    input, textarea, button {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 13px;
+      margin: 9px 0;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+    button {
+      background: #9b8065;
+      color: white;
+      border: 0;
+      cursor: pointer;
+    }
+    .notice {
+      background: #fff3cd;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>DinaShop</h1>
+    <h2>Espace administrateur</h2>
+
+    <p class="notice">
+      Cette interface est une première version.
+      La connexion sécurisée et l'enregistrement des produits
+      dans Supabase restent à configurer.
+    </p>
+
+    <h3>Ajouter un vêtement</h3>
+
+    <form id="productForm">
+      <input id="name" type="text"
+        placeholder="Nom du vêtement" required>
+
+      <input id="price" type="number"
+        placeholder="Prix en euros" min="0" step="0.01" required>
+
+      <textarea id="description"
+        placeholder="Description du vêtement"></textarea>
+
+      <input id="image" type="url"
+        placeholder="Adresse de la photo">
+
+      <button type="submit">Ajouter le produit</button>
+    </form>
+
+    <h3>Mes produits</h3>
+    <div id="products">Aucun produit enregistré.</div>
+  </div>
+
+  <script>
+    const form = document.getElementById("productForm");
+    const products = document.getElementById("products");
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const price = document.getElementById("price").value;
+      const description = document.getElementById("description").value;
+
+      const item = document.createElement("div");
+      item.style.padding = "12px";
+      item.style.borderBottom = "1px solid #ddd";
+
+      const title = document.createElement("strong");
+      title.textContent = name;
+
+      const details = document.createElement("p");
+      details.textContent = price + " € — " + description;
+
+      item.appendChild(title);
+      item.appendChild(details);
+      products.appendChild(item);
+
+      form.reset();
+    });
+  </script>
+</body>
+</html>
